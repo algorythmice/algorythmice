@@ -1,0 +1,67 @@
+name: Mettre à jour mon profil
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 5 * * *'
+
+concurrency:
+  group: profile-readme-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions: {}
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Récupérer le profil
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Préparer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Actualiser les projets et compteurs
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          PROFILE_STATS_TOKEN: ${{ secrets.PROFILE_STATS_TOKEN }}
+        run: python scripts/update_profile.py
+
+      - name: Enregistrer uniquement le README s'il a changé
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = 'README.md';
+            const branch = context.ref.replace(/^refs\/heads\//, '');
+            const local = fs.readFileSync(path);
+            const current = await github.rest.repos.getContent({
+              ...context.repo, path, ref: branch
+            });
+            if (Array.isArray(current.data) || current.data.type !== 'file' || current.data.encoding !== 'base64') {
+              throw new Error('Le README distant ne peut pas être comparé.');
+            }
+            const remote = Buffer.from(current.data.content, 'base64');
+            if (remote.equals(local)) {
+              core.info('Le README est déjà à jour.');
+              return;
+            }
+            // Refuse to overwrite a README edited after this workflow checked out.
+            const checkout = await github.rest.repos.getContent({
+              ...context.repo, path, ref: context.sha
+            });
+            if (checkout.data.sha !== current.data.sha) {
+              throw new Error('Le README a changé pendant la génération. Relancer le workflow.');
+            }
+            await github.rest.repos.createOrUpdateFileContents({
+              ...context.repo, path, branch,
+              message: 'Actualiser les projets du profil',
+              content: local.toString('base64'),
+              sha: current.data.sha
+            });
