@@ -6,10 +6,10 @@
 
 <sub>Student. Mostly Python and Kotlin. Interested in cybersecurity and AI.</sub>
 
-[![Java](https://img.shields.io/badge/Java-7CD5F5?style=for-the-badge&logo=openjdk&logoColor=0C1216)](https://www.java.com/)
-[![Python](https://img.shields.io/badge/Python-7CD5F5?style=for-the-badge&logo=python&logoColor=0C1216)](https://www.python.org/)
-[![C%23](https://img.shields.io/badge/C%23-43A5D7?style=for-the-badge&logo=dotnet&logoColor=white)](https://dotnet.microsoft.com/languages/csharp)
-[![Kotlin](https://img.shields.io/badge/Kotlin-43A5D7?style=for-the-badge&logo=kotlin&logoColor=white)](https://kotlinlang.org/)
+[![Java](https://img.shields.io/badge/Java-7CD5F5?style=flat&logo=openjdk&logoColor=0C1216)](https://www.java.com/)
+[![Python](https://img.shields.io/badge/Python-7CD5F5?style=flat&logo=python&logoColor=0C1216)](https://www.python.org/)
+[![C%23](https://img.shields.io/badge/C%23-43A5D7?style=flat&logo=dotnet&logoColor=white)](https://dotnet.microsoft.com/languages/csharp)
+[![Kotlin](https://img.shields.io/badge/Kotlin-43A5D7?style=flat&logo=kotlin&logoColor=white)](https://kotlinlang.org/)
 
 <!-- STATS:START -->
 **12** publics · **9** privés
