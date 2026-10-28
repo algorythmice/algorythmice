@@ -12,7 +12,7 @@
 [![Kotlin](https://img.shields.io/badge/Kotlin-43A5D7?style=flat&logo=kotlin&logoColor=white)](https://kotlinlang.org/)
 
 <!-- STATS:START -->
-**12** publics · **9** privés
+**13** publics · **9** privés
 
 <!-- PRIVATE_STATS: {"count":9,"verified_on":"2026-10-07"} -->
 <!-- STATS:END -->
@@ -31,9 +31,10 @@
 | [VoxelEngine](https://github.com/algorythmice/VoxelEngine) | Java |
 
 <details>
-<summary>Autres dépôts / Other repositories (5)</summary>
+<summary>Autres dépôts / Other repositories (6)</summary>
 
 - [algorythmice](https://github.com/algorythmice/algorythmice) — profil / profile
+- [hisqool\_manager](https://github.com/algorythmice/hisqool_manager) — fork
 - [Papillon](https://github.com/algorythmice/Papillon) — fork
 - [pronotepy](https://github.com/algorythmice/pronotepy) — fork
 - [SimCityBuildItBot](https://github.com/algorythmice/SimCityBuildItBot) — fork
